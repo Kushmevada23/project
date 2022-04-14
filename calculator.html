@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-COMPATIBLE" content="IE=EDAGE">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>calculator</title>
+    </head>
+    <center><h3>CALCULATE YOUR PROBLEM</h3></center>
+    <body>
+        <style>
+            h3{
+                color: aliceblue;
+            }
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                background-color:black;
+                font-family: sans-serif;
+                outline: none;
+            }
+            .container{
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .calculator{
+                background-color: gray;
+                padding: 15px;
+                border-radius: 15px;
+                box-shadow: inset 1.5px 1px 5px black,
+                                  1.5px 1px 5px rgba(0, 0, 0,.16); 
+                display: grid;
+                grid-template-columns: repeat(4,68px);
+
+            }
+            input{
+                grid-column: span 4;
+                height: 70px;
+                width: 260px;
+                background-color:white;
+                box-shadow: inset -5px -5px 12px white,
+                                  -5px -5px 12px rgba(0, 0, 0,.16);
+                border: none;
+                border-radius: 15px;
+                color: black;
+                font-size: 50px;
+                text-align: end;
+                margin: auto;
+                margin-top: 40px;
+                margin-bottom: 30px;
+                padding: 20px;
+            }
+            button{
+                height: 50px;
+                width: 50px;
+                background-color:black;
+                box-shadow: -2.5px -2px 5px black,
+                            -2.5px -2px 5px rgba(0, 0, 0,.16);
+                            border: none;
+                            border-radius: 25%;
+                            margin: 8px;
+                            font-size: 18px;
+                            color: lightgoldenrodyellow;
+                            
+                        }  
+            .equal{
+                width: 118px;
+                border-radius: 15px;
+                background-color: red;
+                box-shadow: -5px -5px 12px black,
+                            -5px -5px 12px rgba(0, 0, 0,.16);;
+            }                   
+
+        </style>
+        <div class="container">
+            <div class="calculator">
+            <input type="text" placeholder="0" id="output-screen">   
+            <button onclick="cl()">CL</button> 
+            <button onclick="del()">DEL</button> 
+            <button onclick="diplay('%')">%</button> 
+            <button onclick="diplay('/')">/</button> 
+            <button onclick="diplay('7')">7</button> 
+            <button onclick="diplay('8')">8</button> 
+            <button onclick="diplay('9')">9</button> 
+            <button onclick="diplay('*')">*</button> 
+            <button onclick="diplay('4')">4</button> 
+            <button onclick="diplay('5')">5</button> 
+            <button onclick="diplay('6')">6</button> 
+            <button onclick="diplay('-')">-</button> 
+            <button onclick="diplay('1')">1</button> 
+            <button onclick="diplay('2')">2</button> 
+            <button onclick="diplay('3')">3</button> 
+            <button onclick="diplay('+')">+</button> 
+            <button onclick="diplay('.')">.</button> 
+            <button onclick="diplay(0)">0</button> 
+            <button onclick="calculator()" class="equal">=</button> 
+            </div>
+        </div>
+        <script>
+            let outputscreen = document.getElementById("output-screen");
+
+            function diplay(num){
+                outputscreen.value += num;
+            }
+            function calculator(){
+                try{
+                    outputscreen.value = eval(outputscreen.value);
+                }
+                catch(err)
+                {
+                    alert("Enter Proper Value")
+                }
+            }
+            function cl(){
+                outputscreen.value ="";
+            }
+            function del(){
+                outputscreen.value = outputscreen.value.slice(0,-1);
+            }
+        </script>
+    </body>
+</html>
